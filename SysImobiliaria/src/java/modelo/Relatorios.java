@@ -14,6 +14,7 @@ public class Relatorios {
     private double comissao;
     private double valorVenda;
     private boolean parceria;
+    private boolean status;
     private Imoveis imovel;
     private Corretor corretor;
     private Proprietario proprietario;
@@ -21,6 +22,7 @@ public class Relatorios {
     
     private LocalDate dataFinal;
     private int telefonemas;
+    private int propostas;
     private int visitas;
 
     ArrayList<Relatorios> listaRelatorios;

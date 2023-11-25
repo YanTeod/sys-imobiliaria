@@ -21,10 +21,9 @@ public class RelatoriosDAO extends DataBaseDAO {
     public void inserir(Relatorios relatorio) throws Exception {
         PreparedStatement pst;
 
-        String sql = "INSERT INTO relatorios (custos,comissao,valorVenda,parceria,idCorretor,idProprietario,idComprador,dataFinal,visitas,telefonemas,idImovel) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO relatorios (custos,comissao,valorVenda,parceria,idCorretor,idProprietario,idComprador,dataFinal,visitas,telefonemas,idImovel,propostas,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         pst = conn.prepareStatement(sql);
 
-        
         Date sqlDataFinal = null;
         if (relatorio.getDataFinal() != null) {
             sqlDataFinal = Date.valueOf(relatorio.getDataFinal());
@@ -37,11 +36,13 @@ public class RelatoriosDAO extends DataBaseDAO {
         pst.setInt(5, relatorio.getCorretor().getIdCorretor());
         pst.setInt(6, relatorio.getProprietario().getIdProprietario());
         pst.setInt(7, relatorio.getComprador().getIdComprador());
-   
+
         pst.setDate(8, sqlDataFinal);
         pst.setInt(9, relatorio.getVisitas());
         pst.setInt(10, relatorio.getTelefonemas());
         pst.setInt(11, relatorio.getImovel().getIdImovel());
+        pst.setInt(12, relatorio.getPropostas());
+        pst.setBoolean(13, relatorio.isStatus());
 
         pst.execute();
     }
@@ -49,11 +50,11 @@ public class RelatoriosDAO extends DataBaseDAO {
     public void alterar(Relatorios relatorio) throws Exception {
         try {
             PreparedStatement pst;
-            String sql = "UPDATE relatorios SET custos=?,comissao=?,valorVenda=?,parceria=?,idCorretor=?,idProprietario=?,idComprador=?,dataFinal=?,visitas=?,telefonemas=?,idImovel=? WHERE idRelatorio=?";
+            String sql = "UPDATE relatorios SET custos=?,comissao=?,valorVenda=?,parceria=?,idCorretor=?,idProprietario=?,idComprador=?,dataFinal=?,visitas=?,telefonemas=?,idImovel=?,propostas=?,status=? WHERE idRelatorio=?";
             pst = conn.prepareStatement(sql);
 
             DateTimeFormatter formatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-       
+
             Date sqlDataFinal = null;
             if (relatorio.getDataFinal() != null) {
                 sqlDataFinal = Date.valueOf(relatorio.getDataFinal());
@@ -66,12 +67,14 @@ public class RelatoriosDAO extends DataBaseDAO {
             pst.setInt(5, relatorio.getCorretor().getIdCorretor());
             pst.setInt(6, relatorio.getProprietario().getIdProprietario());
             pst.setInt(7, relatorio.getComprador().getIdComprador());
-        
+
             pst.setDate(8, sqlDataFinal);
             pst.setInt(9, relatorio.getVisitas());
             pst.setInt(10, relatorio.getTelefonemas());
             pst.setInt(11, relatorio.getImovel().getIdImovel());
             pst.setInt(12, relatorio.getIdRelatorio());
+            pst.setInt(13, relatorio.getPropostas());
+            pst.setBoolean(14, relatorio.isStatus());
 
             pst.execute();
         } catch (Exception e) {
@@ -103,14 +106,16 @@ public class RelatoriosDAO extends DataBaseDAO {
             relatorio.setComissao(rs.getDouble("comissao"));
             relatorio.setValorVenda(rs.getDouble("valorVenda"));
             relatorio.setParceria(rs.getBoolean("parceria"));
+            relatorio.setStatus(rs.getBoolean("status"));
             relatorio.getImovel().setIdImovel(rs.getInt("idImovel"));
             relatorio.getCorretor().setIdCorretor(rs.getInt("idCorretor"));
             relatorio.getProprietario().setIdProprietario(rs.getInt("idProprietario"));
             relatorio.getComprador().setIdComprador(rs.getInt("idComprador"));
-         
+
             Date dataFinalDB = rs.getDate("dataFinal");
             relatorio.setDataFinal(dataFinalDB != null ? dataFinalDB.toLocalDate() : null);
 
+            relatorio.setPropostas(rs.getInt("propostas"));
             relatorio.setTelefonemas(rs.getInt("telefonemas"));
             relatorio.setVisitas(rs.getInt("visitas"));
 
@@ -139,10 +144,11 @@ public class RelatoriosDAO extends DataBaseDAO {
             relatorio.getCorretor().setIdCorretor(rs.getInt("idCorretor"));
             relatorio.getProprietario().setIdProprietario(rs.getInt("idProprietario"));
             relatorio.getComprador().setIdComprador(rs.getInt("idComprador"));
-           
+            relatorio.setStatus(rs.getBoolean("status"));
             Date dataFinalDB = rs.getDate("dataFinal");
             relatorio.setDataFinal(dataFinalDB != null ? dataFinalDB.toLocalDate() : null);
 
+            relatorio.setPropostas(rs.getInt("propostas"));
             relatorio.setTelefonemas(rs.getInt("telefonemas"));
             relatorio.setVisitas(rs.getInt("visitas"));
 
@@ -169,13 +175,15 @@ public class RelatoriosDAO extends DataBaseDAO {
             relatorio.setComissao(rs.getDouble("comissao"));
             relatorio.setValorVenda(rs.getDouble("valorVenda"));
             relatorio.setParceria(rs.getBoolean("parceria"));
+            relatorio.setStatus(rs.getBoolean("status"));
             relatorio.getImovel().setIdImovel(rs.getInt("idImovel"));
             relatorio.getCorretor().setIdCorretor(rs.getInt("idCorretor"));
             relatorio.getProprietario().setIdProprietario(rs.getInt("idProprietario"));
             relatorio.getComprador().setIdComprador(rs.getInt("idComprador"));
-         
+
             relatorio.setDataFinal(rs.getDate("dataFinal").toLocalDate());
             relatorio.setTelefonemas(rs.getInt("telefonemas"));
+            relatorio.setPropostas(rs.getInt("propostas"));
             relatorio.setVisitas(rs.getInt("visitas"));
 
             listaRelatorios.add(relatorio);

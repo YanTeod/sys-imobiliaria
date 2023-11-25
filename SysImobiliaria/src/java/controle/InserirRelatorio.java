@@ -39,6 +39,7 @@ public class InserirRelatorio extends HttpServlet {
             Double valorVenda = Double.parseDouble(request.getParameter("valorVenda"));
 
             boolean parceria = request.getParameter("parceria") != null;
+            boolean status = request.getParameter("status") != null;
 
             int idCorretor = Integer.parseInt(request.getParameter("idCorretor"));
             int idProprietario = Integer.parseInt(request.getParameter("idProprietario"));
@@ -46,6 +47,7 @@ public class InserirRelatorio extends HttpServlet {
 
             String dataFinal = request.getParameter("dataFinal");
             int telefonemas = Integer.parseInt(request.getParameter("telefonemas"));
+            int propostas = Integer.parseInt(request.getParameter("propostas"));
             int visitas = Integer.parseInt(request.getParameter("visitas"));
 
             try {
@@ -63,11 +65,13 @@ public class InserirRelatorio extends HttpServlet {
                 relatorio.setComissao(comissao);
                 relatorio.setValorVenda(valorVenda);
                 relatorio.setParceria(parceria);
+                relatorio.setStatus(status);
                 relatorio.getCorretor().setIdCorretor(idCorretor);
                 relatorio.getProprietario().setIdProprietario(idProprietario);
                 relatorio.getComprador().setIdComprador(idComprador);
                 relatorio.setDataFinal(dataFinalConvertida);
 
+                relatorio.setPropostas(propostas);
                 relatorio.setTelefonemas(telefonemas);
                 relatorio.setVisitas(visitas);
 
