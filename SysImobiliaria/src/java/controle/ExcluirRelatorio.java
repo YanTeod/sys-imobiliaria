@@ -35,8 +35,8 @@ public class ExcluirRelatorio extends HttpServlet {
                     rDB.excluir(relatorio);
                     rDB.desconectar();
                     out.print("<script language='javascript'>");
-                    out.print("alert('Imovél excluído com sucesso!!');");
-                    out.print("location.href='listar_relatorios.jsp';");
+                    out.print("alert('Venda excluída com sucesso!!');");
+                    out.print("location.href='vendas_em_aberto.jsp';");
                     out.print("</script>");
 
                 } catch (Exception erro) {

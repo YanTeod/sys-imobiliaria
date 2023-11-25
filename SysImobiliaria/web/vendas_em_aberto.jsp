@@ -40,6 +40,7 @@
                 <tr>
                     <td>id</td>
                     <td>Imovel</td>
+                    <td>Tipo</td>
                     <td>Corretor</td>                    
                     <td>Proprietário</td>
                     <td>Comprador</td>
@@ -77,9 +78,9 @@
 
                     <td>
                         <%
-                            int idImovel = rela.getImovel().getIdImovel();
 
                             try {
+                                int idImovel = rela.getImovel().getIdImovel();
                                 ImoveisDAO iBD = new ImoveisDAO();
                                 iBD.conectar();
                                 Imoveis i = iBD.carregarPorId(idImovel);
@@ -92,6 +93,23 @@
                             }
                         %>
                     </td>
+                    <td>
+                        <%
+                            try {
+                                int idImovel = rela.getImovel().getIdImovel();
+                                ImoveisDAO iBD = new ImoveisDAO();
+                                iBD.conectar();
+                                Imoveis i = iBD.carregarPorId(idImovel);
+                                iBD.desconectar();
+                        %>
+                        <%=i.getTipo()%>
+                        <%
+                            } catch (Exception erro) {
+                                out.print(erro);
+                            }
+                        %>
+                    </td>
+
 
                     <td>
                         <%
@@ -113,21 +131,23 @@
 
                     <td>
                         <%
-                            int idProprietario = rela.getProprietario().getIdProprietario();
-
                             try {
-                                ProprietarioDAO pBD = new ProprietarioDAO();
-                                pBD.conectar();
-                                Proprietario p = pBD.carregarPorId(idProprietario);
-                                pBD.desconectar();
+                                int idImovel = rela.getImovel().getIdImovel();
+                                ImoveisDAO iBD = new ImoveisDAO();
+                                iBD.conectar();
+                                int idProprietario = iBD.salvarIdProprietario(idImovel);
+                                Proprietario p = iBD.carregarProprietarioPorId(idProprietario);
                         %>
-                        <%=p.getNome()%>
+                        <%= p.getNome()%>
                         <%
                             } catch (Exception erro) {
                                 out.print(erro);
                             }
                         %>
                     </td>
+
+
+
 
                     <td>
                         <%

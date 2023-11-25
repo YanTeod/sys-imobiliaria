@@ -42,12 +42,11 @@ public class InserirRelatorio extends HttpServlet {
             boolean status = request.getParameter("status") != null;
 
             int idCorretor = Integer.parseInt(request.getParameter("idCorretor"));
-            int idProprietario = Integer.parseInt(request.getParameter("idProprietario"));
+
             int idComprador = Integer.parseInt(request.getParameter("idComprador"));
 
             String dataFinal = request.getParameter("dataFinal");
             int telefonemas = Integer.parseInt(request.getParameter("telefonemas"));
-            int propostas = Integer.parseInt(request.getParameter("propostas"));
             int visitas = Integer.parseInt(request.getParameter("visitas"));
 
             try {
@@ -67,11 +66,10 @@ public class InserirRelatorio extends HttpServlet {
                 relatorio.setParceria(parceria);
                 relatorio.setStatus(status);
                 relatorio.getCorretor().setIdCorretor(idCorretor);
-                relatorio.getProprietario().setIdProprietario(idProprietario);
+
                 relatorio.getComprador().setIdComprador(idComprador);
                 relatorio.setDataFinal(dataFinalConvertida);
 
-                relatorio.setPropostas(propostas);
                 relatorio.setTelefonemas(telefonemas);
                 relatorio.setVisitas(visitas);
 
@@ -82,7 +80,7 @@ public class InserirRelatorio extends HttpServlet {
 
                 out.print("<script language='javascript'>");
                 out.print("alert('Relatório inserido com sucesso!!');");
-                out.print("location.href='listar_relatorios.jsp';");
+                out.print("location.href='vendas_em_aberto.jsp';");
                 out.print("</script>");
             } catch (DateTimeParseException e) {
                 out.print("Erro ao converter datas. Certifique-se de que estão no formato dd/MM/yyyy.");

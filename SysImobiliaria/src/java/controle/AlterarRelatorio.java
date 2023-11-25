@@ -38,7 +38,7 @@ public class AlterarRelatorio extends HttpServlet {
             boolean parceria = Boolean.parseBoolean(request.getParameter("parceria"));
             boolean status = Boolean.parseBoolean(request.getParameter("status"));
             int idCorretor = Integer.parseInt(request.getParameter("idCorretor"));
-            int idProprietario = Integer.parseInt(request.getParameter("idProprietario"));
+       
             int idComprador = Integer.parseInt(request.getParameter("idComprador"));
 
             String dataFinal = request.getParameter("dataFinal");
@@ -69,7 +69,7 @@ public class AlterarRelatorio extends HttpServlet {
                     relatorio.setParceria(parceria);
                     relatorio.setStatus(status);
                     relatorio.getCorretor().setIdCorretor(idCorretor);
-                    relatorio.getProprietario().setIdProprietario(idProprietario);
+                    
                     relatorio.getComprador().setIdComprador(idComprador);
 
                     relatorio.setDataFinal(dataFinalConvertida);

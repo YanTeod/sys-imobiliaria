@@ -17,7 +17,7 @@ public class Relatorios {
     private boolean status;
     private Imoveis imovel;
     private Corretor corretor;
-    private Proprietario proprietario;
+ 
     private Comprador comprador;
     
     private LocalDate dataFinal;
@@ -28,7 +28,7 @@ public class Relatorios {
     ArrayList<Relatorios> listaRelatorios;
 
     public Relatorios() {
-        this.proprietario = new Proprietario();
+      
         this.imovel = new Imoveis();
         this.comprador = new Comprador();
         this.corretor = new Corretor();

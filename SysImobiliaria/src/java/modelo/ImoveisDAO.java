@@ -101,11 +101,37 @@ public class ImoveisDAO extends DataBaseDAO {
             imovel.setAreaUtil(rs.getDouble("areaUtil"));
             imovel.setAreaTotal(rs.getDouble("areaTotal"));
             imovel.setComodos(rs.getInt("comodos"));
-            imovel.getProprietario().setIdProprietario(rs.getInt("idProprietario"));
+
+            // Criação do objeto Proprietario
+            Proprietario proprietario = new Proprietario();
+            proprietario.setIdProprietario(rs.getInt("idProprietario"));
+            imovel.setProprietario(proprietario);
+
             imovel.setDataInicial((rs.getDate("dataInicial").toLocalDate()));
             imovel.setVagasGaragem(rs.getInt("vagasGaragem"));
-
         }
         return imovel;
     }
+
+    public int salvarIdProprietario(int id) throws Exception {
+        Statement stm;
+        ResultSet rs;
+        int idProprietario = 0;
+        stm = conn.createStatement();
+        String sql = "SELECT idProprietario FROM imoveis WHERE idImovel=" + id;
+        rs = stm.executeQuery(sql);
+        if (rs.next()) {
+            idProprietario = rs.getInt("idProprietario");
+        }
+        return idProprietario;
+    }
+
+    public Proprietario carregarProprietarioPorId(int id) throws Exception {
+        ProprietarioDAO pBD = new ProprietarioDAO();
+        pBD.conectar();
+        Proprietario proprietario = pBD.carregarPorId(id);
+        pBD.desconectar();
+        return proprietario;
+    }
+
 }
