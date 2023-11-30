@@ -1,0 +1,59 @@
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.opcoes {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.opcoes table {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.opcoes table td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle; /* Adicionado para centralizar verticalmente o conteúdo */
+}
+
+.opcoes input[type="text"],
+.opcoes select {
+    width: calc(100% - 16px); /* Ajustado para considerar o padding */
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.opcoes input[type="submit"] {
+  background-color: #00BFFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 12px 100px;
+  
+}
+
+.opcoes input[type="submit"]:hover {
+    background-color: green;
+}
+
+.title {
+    text-align: center;
+    margin: 20px 0; /* Adicionado um espaçamento entre a div .title e o resto do conteúdo */
+}

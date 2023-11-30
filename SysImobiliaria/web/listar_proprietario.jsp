@@ -6,24 +6,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/listar.css" rel="stylesheet">
         <title>Proprietáriso</title>
     </head>
     <body>
         <div>
             <%@include file="menu.jsp" %>
         </div>
+        <br><br><br><br>
         <div class="opcoes">
-            <h2>Lista de Proprietário <a href=form_inserir_proprietario.jsp> (novo proprietário) </a></h2>
+            <div class="title">
+                <h2>Lista de Imóveis</h2>
+                <h3><img src="imagens/adicionar.png"><a href=form_inserir_proprietario.jsp> Novo Proprietário </a><img src="imagens/adicionar.png"></h3>
+            </div>
+            <br>
             <table>
                 <tr>
-                    <td>ID</td>
+                 
                     <td>NOME</td>
                     <td>EMAIL</td>
                     <td>CPF</td>
                     <td>TELEFONE</td>
                     <td>ALTERAR</td>
-                    <td>EXCLUIR</td>
+                
                 </tr>
                 <%                                    try {
                         ProprietarioDAO pDB = new ProprietarioDAO();
@@ -33,13 +38,13 @@
                         for (Proprietario p : lista) {
                 %>
                 <tr>
-                    <td><%=p.getIdProprietario()%></td>
+                    
                     <td><%=p.getNome()%></td>
                     <td><%=p.getEmail()%></td>
                     <td><%=p.getCpf()%></td>
                     <td><%=p.getTelefone()%></td>
                     <td ><a href="form_alterar_proprietario.jsp?idProprietario=<%=p.getIdProprietario()%>"><img src="imagens/alterar.png"></a></td>
-                    <td ><a href="excluir_proprietario.do?idProprietario=<%=p.getIdProprietario()%>"><img src="imagens/excluir.png"></a></td>
+                 
 
                 </tr>
                 <%

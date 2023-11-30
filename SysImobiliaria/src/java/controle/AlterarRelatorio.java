@@ -35,62 +35,55 @@ public class AlterarRelatorio extends HttpServlet {
             Double custos = Double.parseDouble(request.getParameter("custos"));
             Double comissao = Double.parseDouble(request.getParameter("comissao"));
             Double valorVenda = Double.parseDouble(request.getParameter("valorVenda"));
-            boolean parceria = Boolean.parseBoolean(request.getParameter("parceria"));
-            boolean status = Boolean.parseBoolean(request.getParameter("status"));
+
+            boolean parceria = request.getParameter("parceria") != null;
+            boolean status = request.getParameter("status") != null;
+
             int idCorretor = Integer.parseInt(request.getParameter("idCorretor"));
-       
+
             int idComprador = Integer.parseInt(request.getParameter("idComprador"));
 
             String dataFinal = request.getParameter("dataFinal");
-            int propostas = Integer.parseInt(request.getParameter("propostas"));
-            int telefonemas = Integer.parseInt(request.getParameter("telefonemas"));
-            int visitas = Integer.parseInt(request.getParameter("visitas"));
+           
 
-            if (idRelatorio < 1) {
-                out.print("O ID do imovel não encontrado!");
+            try {
+                DateTimeFormatter formatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-            } else {
+                LocalDate dataAtual = LocalDate.now(); // Obtém a data atual
 
-                try {
+                LocalDate dataFinalConvertida = null;
+                if (dataFinal != null && !dataFinal.isEmpty()) {
+                    dataFinalConvertida = LocalDate.parse(dataFinal, formatada);
+                }
+                Relatorios relatorio = new Relatorios();
+                relatorio.setIdRelatorio(idRelatorio);
+                relatorio.getImovel().setIdImovel(idImovel);
+                relatorio.setCustos(custos);
+                relatorio.setComissao(comissao);
+                relatorio.setValorVenda(valorVenda);
+                relatorio.setParceria(parceria);
+                relatorio.setStatus(status);
+                relatorio.getCorretor().setIdCorretor(idCorretor);
 
-                    DateTimeFormatter formatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                relatorio.getComprador().setIdComprador(idComprador);
+                relatorio.setDataFinal(dataFinalConvertida);
 
-                    LocalDate dataFinalConvertida = null;
-                    if (dataFinal != null && !dataFinal.isEmpty()) {
-                        dataFinalConvertida = LocalDate.parse(dataFinal, formatada);
-                    }
+             
 
-                    Relatorios relatorio = new Relatorios();
-                    relatorio.setIdRelatorio(idRelatorio);
-                    relatorio.getImovel().setIdImovel(idImovel);
-                    relatorio.setCustos(custos);
-                    relatorio.setComissao(comissao);
-                    relatorio.setValorVenda(valorVenda);
-                    relatorio.setParceria(parceria);
-                    relatorio.setStatus(status);
-                    relatorio.getCorretor().setIdCorretor(idCorretor);
-                    
-                    relatorio.getComprador().setIdComprador(idComprador);
-
-                    relatorio.setDataFinal(dataFinalConvertida);
-                    relatorio.setPropostas(propostas);
-                    relatorio.setTelefonemas(telefonemas);
-                    relatorio.setVisitas(visitas);
-
-                    RelatoriosDAO vendaDB = new RelatoriosDAO();
-                    vendaDB.conectar();
-                    vendaDB.alterar(relatorio);
-                    vendaDB.desconectar();
+                RelatoriosDAO relatorioDB = new RelatoriosDAO();
+                relatorioDB.conectar();
+                relatorioDB.alterar(relatorio);
+                relatorioDB.desconectar();
 
                     out.print("<script language='javascript'>");
                     out.print("alert('Relatório alterado com sucesso!!');");
-                    out.print("location.href='listar_relatorios.jsp';");
+                    out.print("location.href='vendas_em_aberto.jsp';");
                     out.print("</script>");
                 } catch (Exception erro) {
                     out.print(erro);
                 }
 
-            }
+            
 
             out.println("</body>");
             out.println("</html>");

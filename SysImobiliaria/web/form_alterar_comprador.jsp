@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/aqueles.css" rel="stylesheet">
         <script language="javascript" >
             function validaForm() {
                 formulario = document.form_comprador;
@@ -38,13 +38,13 @@
     </head>
     <body>
         <div>
-
             <%@include file="menu.jsp" %>
         </div>
+        <br><br><br><br>
         <div class="opcoes">
             <h2>Alterando Comprador</h2>
             <form name="form_comprador" action="alterar_comprador.do" method="post" onsubmit="return validaForm();">
-                <br><br>
+                <br>
                 <table>
                     <%                                        int idComprador = Integer.parseInt(request.getParameter("idComprador"));
                         try {

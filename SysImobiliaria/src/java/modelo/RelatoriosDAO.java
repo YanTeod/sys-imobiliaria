@@ -36,7 +36,7 @@ public class RelatoriosDAO extends DataBaseDAO {
             pst.setDouble(3, relatorio.getValorVenda());
             pst.setBoolean(4, relatorio.isParceria());
             pst.setInt(5, relatorio.getCorretor().getIdCorretor());
-        
+
             pst.setInt(6, relatorio.getComprador().getIdComprador());
 
             pst.setDate(7, sqlDataFinal);
@@ -54,39 +54,37 @@ public class RelatoriosDAO extends DataBaseDAO {
     }
 
     public void alterar(Relatorios relatorio) throws Exception {
-        try {
-            PreparedStatement pst;
-            String sql = "UPDATE relatorios SET custos=?,comissao=?,valorVenda=?,parceria=?,idCorretor=?,idComprador=?,dataFinal=?,visitas=?,telefonemas=?,idImovel=?,propostas=?,status=? WHERE idRelatorio=?";
-            pst = conn.prepareStatement(sql);
 
-            DateTimeFormatter formatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        PreparedStatement pst;
+        String sql = "UPDATE relatorios SET custos=?,comissao=?,valorVenda=?,parceria=?,idCorretor=?,idComprador=?,dataFinal=?,visitas=?,telefonemas=?,idImovel=?,propostas=?,status=? WHERE idRelatorio=?";
+        pst = conn.prepareStatement(sql);
 
-            Date sqlDataFinal = null;
-            if (relatorio.getDataFinal() != null) {
-                sqlDataFinal = Date.valueOf(relatorio.getDataFinal());
-            }
+        DateTimeFormatter formatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-            pst.setDouble(1, relatorio.getCustos());
-            pst.setDouble(2, relatorio.getComissao());
-            pst.setDouble(3, relatorio.getValorVenda());
-            pst.setBoolean(4, relatorio.isParceria());
-            pst.setInt(5, relatorio.getCorretor().getIdCorretor());
-           
-            pst.setInt(6, relatorio.getComprador().getIdComprador());
-
-            pst.setDate(7, sqlDataFinal);
-            pst.setInt(8, relatorio.getVisitas());
-            pst.setInt(9, relatorio.getTelefonemas());
-            pst.setInt(10, relatorio.getImovel().getIdImovel());
-            pst.setInt(11, relatorio.getIdRelatorio());
-            pst.setInt(12, relatorio.getPropostas());
-            pst.setBoolean(13, relatorio.isStatus());
-
-            pst.execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception("Erro durante a alteração da relatório: " + e.getMessage());
+        Date sqlDataFinal = null;
+        if (relatorio.getDataFinal() != null) {
+            sqlDataFinal = Date.valueOf(relatorio.getDataFinal());
         }
+
+        pst.setDouble(1, relatorio.getCustos());
+        pst.setDouble(2, relatorio.getComissao());
+        pst.setDouble(3, relatorio.getValorVenda());
+        pst.setBoolean(4, relatorio.isParceria());
+        pst.setInt(5, relatorio.getCorretor().getIdCorretor());
+
+        pst.setInt(6, relatorio.getComprador().getIdComprador());
+
+        pst.setDate(7, sqlDataFinal);
+        pst.setInt(8, relatorio.getVisitas());
+        pst.setInt(9, relatorio.getTelefonemas());
+        pst.setInt(10, relatorio.getImovel().getIdImovel());
+
+        pst.setInt(11, relatorio.getPropostas());
+        pst.setBoolean(12, relatorio.isStatus());
+        pst.setInt(13, relatorio.getIdRelatorio());
+
+        pst.execute();
+
     }
 
     public void excluir(Relatorios relatorio) throws Exception {
@@ -115,7 +113,7 @@ public class RelatoriosDAO extends DataBaseDAO {
             relatorio.setStatus(rs.getBoolean("status"));
             relatorio.getImovel().setIdImovel(rs.getInt("idImovel"));
             relatorio.getCorretor().setIdCorretor(rs.getInt("idCorretor"));
-            
+
             relatorio.getComprador().setIdComprador(rs.getInt("idComprador"));
 
             Date dataFinalDB = rs.getDate("dataFinal");
@@ -148,7 +146,7 @@ public class RelatoriosDAO extends DataBaseDAO {
             relatorio.setValorVenda(rs.getDouble("valorVenda"));
             relatorio.setParceria(rs.getBoolean("parceria"));
             relatorio.getCorretor().setIdCorretor(rs.getInt("idCorretor"));
-            
+
             relatorio.getComprador().setIdComprador(rs.getInt("idComprador"));
             relatorio.setStatus(rs.getBoolean("status"));
             Date dataFinalDB = rs.getDate("dataFinal");
@@ -184,7 +182,7 @@ public class RelatoriosDAO extends DataBaseDAO {
             relatorio.setStatus(rs.getBoolean("status"));
             relatorio.getImovel().setIdImovel(rs.getInt("idImovel"));
             relatorio.getCorretor().setIdCorretor(rs.getInt("idCorretor"));
-            
+
             relatorio.getComprador().setIdComprador(rs.getInt("idComprador"));
 
             relatorio.setDataFinal(rs.getDate("dataFinal").toLocalDate());
@@ -196,6 +194,19 @@ public class RelatoriosDAO extends DataBaseDAO {
         }
 
         return listaRelatorios;
+    }
+    
+    public void ContadorRelatorios(Relatorios relatorio) throws Exception{
+        PreparedStatement pst;
+        String sql = "UPDATE relatorios SET visitas=?,telefonemas=?,propostas=? WHERE idRelatorio=?";
+        pst = conn.prepareStatement(sql);
+        
+        pst.setInt(1, relatorio.getVisitas());
+        pst.setInt(2, relatorio.getTelefonemas());
+        pst.setInt(3, relatorio.getPropostas());
+        pst.setInt(4, relatorio.getIdRelatorio());
+        
+        pst.execute();
     }
 
 }

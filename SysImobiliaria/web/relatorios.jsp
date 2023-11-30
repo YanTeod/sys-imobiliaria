@@ -12,15 +12,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/listar.css" rel="stylesheet">
         <title>Relatórios</title>
     </head>
     <body>
         <div>
             <%@include file="menu.jsp" %>
         </div>
+        <br><br><br><br>
         <div class="opcoes">
-            <h2>Lista de Relatórios <a href=form_inserir_relatorio.jsp> (novo Relatório) </a></h2>
+            <div class="title">
+                <h2>Lista de Relatórios</h2>
+                <h3><img src="imagens/adicionar.png"><a href=form_inserir_relatorio.jsp> Novo Relatório </a><img src="imagens/adicionar.png"></h3>
+            </div>
+            <br>
             <table>
                 <tr>
                     <td>ID</td>

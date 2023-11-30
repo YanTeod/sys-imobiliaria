@@ -31,46 +31,43 @@ public class AlterarImovel extends HttpServlet {
             Double areaUtil = Double.parseDouble(request.getParameter("areaUtil"));
             Double areaTotal = Double.parseDouble(request.getParameter("areaTotal"));
             Integer comodos = Integer.parseInt(request.getParameter("comodos"));
-            int idProprietario = Integer.parseInt(request.getParameter("idProprietario"));
-            int idComprador = Integer.parseInt(request.getParameter("idComprador"));
             Integer vagasGaragem = Integer.parseInt(request.getParameter("vagasGaragem"));
+            int idProprietario = Integer.parseInt(request.getParameter("idProprietario"));
             String status = request.getParameter("status");
 
-             if (precoM2 == null || precoM2.equals("")) {
-                out.print("O campo preço m2 deve ser preenchido!");
+            if (precoM2 == null || precoM2.equals("")) {
+                out.print("O campo precoM2 deve ser preenchido!");
             } else if (localizacao == null || localizacao.equals("")) {
                 out.print("O campo localização deve ser preenchido!");
             } else if (areaUtil == null || areaUtil.equals("")) {
-                out.print("O campo área útil deve ser preenchido!");
+                out.print("O campo Área Útil deve ser preenchido!");
             } else if (areaTotal == null || areaTotal.equals("")) {
-                out.print("O campo área total deve ser preenchido!");
-            } else if (comodos == null || comodos.equals("")) {
-                out.print("O campo comodos deve ser preenchido!");
-            } else if (idProprietario < 1) {
-                out.print("O campo Proprietário deve ser preenchido!");
-            } else if (idComprador < 1) {
-                out.print("O campo Comprador deve ser preenchido!");
+                out.print("O campo Área Total deve ser preenchido!");
+            } else if (comodos == null) {
+                out.print("O campo Comodos deve ser preenchido!");
             } else if (vagasGaragem == null || vagasGaragem.equals("")) {
-                out.print("O campo Vagas Garagem deve ser preenchido!");
+                out.print("O campo Vagas Da Garagem deve ser preenchido!");
+            } else if (idProprietario < 1) {
+                out.print("O campo Perfil deve ser preenchido!");
             } else if (idImovel < 1) {
-                out.print("O ID do imovel não encontrado!");
+                out.print("Imovel não encontrado!");
             } else {
                 try {
-                    
-                    Imoveis imoveis = new Imoveis();
-                    imoveis.setIdImovel(idImovel);
-                    imoveis.setTipo(tipo);
-                    imoveis.setPrecoM2(precoM2);
-                    imoveis.setLocalizacao(localizacao);
-                    imoveis.setAreaUtil(areaUtil);
-                    imoveis.setAreaTotal(areaTotal);
-                    imoveis.setComodos(comodos);
-                    imoveis.getProprietario().setIdProprietario(idProprietario);                    
-                    imoveis.setVagasGaragem(vagasGaragem);
-                    imoveis.setStatus(status);
+
+                    Imoveis imovel = new Imoveis();
+                    imovel.setIdImovel(idImovel);
+                    imovel.setTipo(tipo);
+                    imovel.setPrecoM2(precoM2);
+                    imovel.setLocalizacao(localizacao);
+                    imovel.setAreaUtil(areaUtil);
+                    imovel.setAreaTotal(areaTotal);
+                    imovel.setComodos(comodos);
+                    imovel.setVagasGaragem(vagasGaragem);
+                    imovel.setStatus(status);
+                    imovel.getProprietario().setIdProprietario(idProprietario);
                     ImoveisDAO iDB = new ImoveisDAO();
                     iDB.conectar();
-                    iDB.alterar(imoveis);
+                    iDB.alterar(imovel);
                     iDB.desconectar();
                     out.print("<script language='javascript'>");
                     out.print("alert('Imovel atualizado com sucesso!!');");

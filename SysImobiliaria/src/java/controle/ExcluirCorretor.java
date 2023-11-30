@@ -28,7 +28,7 @@ public class ExcluirCorretor extends HttpServlet {
             out.println("<title>Servlet ExcluirUsuario</title>");
             out.println("</head>");
             out.println("<body>");
-            String id = request.getParameter("id");
+            String id = request.getParameter("idCorretor");
             if (id == null || id.equals("")) {
                 out.print("Um Corretor deve ser selecionado!");
             } else {

@@ -35,14 +35,12 @@ try{
         for(Menu m: listaMenu){
         %>
         <div class="home">
+            <br>
         <table>
             <nav >
-
                 <a class="navbar-brand" href="<%=m.getLink()%>">
                     <%=m.getMenu()%>
                 </a> 
-
-
             </nav>
         </table>
                 </div>

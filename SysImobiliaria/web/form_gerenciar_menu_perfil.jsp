@@ -7,14 +7,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/aqueles.css" rel="stylesheet">
         <title>Gerenciar Menus de Perfil</title>
     </head>
     <body>
         <div>
             <%@include file="menu.jsp" %>
         </div>
-        <br><br>
+        <br><br><br><br>
         <div class="opcoes">
             <div>
                 <form name="form_gerenciar" method="post" action="gerenciar_menu_perfil.do" onsubmit="return validaForm();">
@@ -36,9 +36,13 @@
                             out.print(e);
                         }
                     %>
-                    <input type="hidden" name="idPerfil" value="<%=perfil.getIdPerfil()%>" />
-                    <input type="hidden" name="op" value="vincular" />
-                    <h4>Gerenciar Menus de Perfil</h4>
+                    <div class="title">
+                        <input type="hidden" name="idPerfil" value="<%=perfil.getIdPerfil()%>" />
+                        <input type="hidden" name="op" value="vincular" />
+                    </div>
+                    <div class="title">
+                        <h2>Gerenciar Menus de Perfil</h2>
+                    </div>
                     <table>
                         <tr>
                             <td>ID: </td>

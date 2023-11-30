@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/listar.css" rel="stylesheet">
         <title>Corretores</title>
     </head>
     <body>
@@ -17,16 +17,21 @@
 
             <%@include file="menu.jsp" %>
         </div>
+        <br><br><br><br>
         <div class="opcoes">
-            <h3>Lista de Corretores ( <img src="imagens/novo.png" align="top"><a href="form_inserir_corretor.jsp">Novo</a> )</h3>
+            <div class="title">
+                <h2>Lista de Corretores</h2>
+                <h3><img src="imagens/adicionar.png"><a href="form_inserir_corretor.jsp"> Novo Corretor </a><img src="imagens/adicionar.png"></h3>
+            </div>
+            <br>
             <table>
                 <tr>
-                    <td>ID</td>                               
+                                                
                     <td>NOME</td>
                     <td>LOGIN</td>
                     <td>PERFIL</td>
                     <td>ALTERAR</td>
-                    <td>EXCLUIR</td>
+                 
                 </tr>
                 <%                                 try {
                         CorretorDAO cDB = new CorretorDAO();
@@ -36,12 +41,12 @@
                         for (Corretor c : lista) {
                 %>
                 <tr>
-                    <td><%=c.getIdCorretor()%></td>
+                    
                     <td><%=c.getNomeCorretor()%></td>
                     <td><%=c.getLogin()%></td>
                     <td><%=c.getPerfil()%></td>
                     <td><a href="form_alterar_corretor.jsp?idCorretor=<%=c.getIdCorretor()%>"><img src="imagens/alterar.png"></a></td>
-                    <td><a href="excluir_corretor.do?idCorretor=<%=c.getIdCorretor()%>"><img src="imagens/excluir.png"></a></td>
+                 
                 </tr>
                 <%
                         }

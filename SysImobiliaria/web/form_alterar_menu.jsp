@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/aqueles.css" rel="stylesheet">
         <script language="javascript" >
             function validaForm() {
                 formulario = document.form_menu;
@@ -32,14 +32,16 @@
     </head>
     <body>
         <div>
-            @include file="menu.jsp"
+            <%@include file="menu.jsp" %>
+        </div>
+        <br><br><br><br><br>
+        <div class="title">
+            <h2>Alterando Menu</h2>
         </div>
         <div class="opcoes">
-            <h2>Alterando Menu</h2>
             <form name="form_menu" action="alterar_menu.do" method="post" onsubmit="return validaForm();">
                 <table>
-                    <%
-                        int id = Integer.parseInt(request.getParameter("id"));
+                    <%                        int id = Integer.parseInt(request.getParameter("id"));
                         try {
                             MenuDAO mDB = new MenuDAO();
                             mDB.conectar();
@@ -63,7 +65,7 @@
                             <input type="text" name="link" value="<%=m.getLink()%>" size="60">
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td></td>
                         <td><input type="submit" value="Alterar"></td>

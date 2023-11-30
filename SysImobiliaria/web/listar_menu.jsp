@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/listar.css" rel="stylesheet">
         <title>Menus</title>
     </head>
     <body>
@@ -17,16 +17,21 @@
 
             <%@include file="menu.jsp" %>
         </div>
+        <br><br><br><br>
         <div class="opcoes">
-            <h3>Lista de Menus ( <img src="imagens/novo.png" align="top"><a href="form_inserir_menu.jsp">Novo</a> )</h3>
+            <div class="title">
+                <h2>Lista de Menus</h2>
+                <h3><img src="imagens/adicionar.png"><a href="form_inserir_menu.jsp"> Novo Menu </a><img src="imagens/adicionar.png"></h3>
+            </div>
+            <br>
             <table>
                 <tr>
-                    <td>ID</td>
+                  
                     <td>MENU</td>
                     <td>LINK</td>
               
                     <td>ALTERAR</td>
-                    <td>EXCLUIR</td>
+            
                 </tr>
                 <%                                    try {
                         MenuDAO mDB = new MenuDAO();
@@ -36,12 +41,12 @@
                         for (Menu m : lista) {
                 %>
                 <tr >
-                    <td><%=m.getIdMenu()%></td>
+                 
                     <td><%=m.getMenu() %></td>
                     <td><%=m.getLink() %></td>
                
                     <td><a href="form_alterar_menu.jsp?id=<%=m.getIdMenu()%>"><img src="imagens/alterar.png"></a></td>
-                    <td><a href="excluir_menu.do?id=<%=m.getIdMenu()%>"><img src="imagens/excluir.png" border="0"></a></td>
+                
                 </tr>
                 <%
                         }

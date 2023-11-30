@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/aqueles.css" rel="stylesheet">
         <script language="javascript" >
             function validaForm() {
                 formulario = document.form_usuario;
@@ -30,9 +30,9 @@
     </head>
     <body>
         <div>
-
             <%@include file="menu.jsp" %>
         </div>
+        <br><br><br><br>
         <div class="opcoes">
             <form name="form_usuario" action="inserir_proprietario.do" method="post" onsubmit="return validaForm();">
                 <table>

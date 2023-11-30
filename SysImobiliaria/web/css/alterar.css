@@ -1,0 +1,111 @@
+.opcoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  width: 100%; 
+  background-color: #fff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.opcoes h2 {
+    text-decoration: none;
+}
+
+.opcoes h3 {
+  margin-bottom: 20px;
+}
+
+.table-container {
+  width: 70%;
+  overflow-x: auto;
+}
+
+.menu-table {
+  width: 70%;
+  border-collapse: collapse;
+}
+
+.menu-table th, .menu-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  widht: 50px;
+}
+
+.menu-table th {
+  background-color: #fff;
+  color: white;
+}
+
+.menu-table tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.menu-table img {
+  vertical-align: middle;
+}
+
+.opcoes a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.opcoes a:hover {
+  color: green;
+}
+.form-container {
+  width: 60%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 0 auto; /* Isso centraliza o elemento horizontalmente */
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0px;
+}
+
+.form-group {
+  flex: 1;
+  margin-right: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.btn-submit {
+  background-color: #00BFFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-submit:hover {
+  background-color: green;
+}
+.title {
+  text-align: center; /* Centraliza o texto dentro da div */
+  margin: 0 auto; /* Centraliza a div horizontalmente */
+}

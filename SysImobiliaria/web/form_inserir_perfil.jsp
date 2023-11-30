@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/aqueles.css" rel="stylesheet">
         <script language="javascript" >
             function validaForm() {
                 formulario = document.form_perfil;
@@ -20,9 +20,9 @@
     </head>
     <body>
         <div>
-
             <%@include file="menu.jsp" %>
         </div>
+        <br><br><br><br><br><br>
         <div class="opcoes">
             <form name="form_perfil" action="inserir_perfil.do" method="post" onsubmit="return validaForm();">
                 <table width="500">

@@ -96,6 +96,10 @@
         <servlet-name>ExcluirRelatorio</servlet-name>
         <servlet-class>controle.ExcluirRelatorio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ModificarContador</servlet-name>
+        <servlet-class>controle.ModificarContador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
         <url-pattern>/efetuar_login.do</url-pattern>
@@ -191,6 +195,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirRelatorio</servlet-name>
         <url-pattern>/excluir_relatorio.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificarContador</servlet-name>
+        <url-pattern>/modificar_contador.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -7,25 +7,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/listar.css" rel="stylesheet">
         <title>Comprador</title>
     </head>
     <body>
         <div align="center">
-
             <%@include file="menu.jsp" %>
         </div>
         <div class="opcoes">
-            <h2>Lista de Compradores <a href=form_inserir_comprador.jsp> (novo comprador) </a></h2>
+            <br><br><br><br>
+            <div class="title">
+                <h2>Lista de Compradores</h2>
+                <h3><img src="imagens/adicionar.png"><a href=form_inserir_comprador.jsp> Novo Comprador </a><img src="imagens/adicionar.png"></h3>
+            </div>
+            <br>
             <table>
                 <tr>
-                    <td>ID</td>
+                
                     <td>NOME</td>
                     <td>EMAIL</td>
                     <td>CPF</td>
                     <td>TELEFONE</td>
                     <td>ALTERAR</td>
-                    <td>EXCLUIR</td>
+                  
                 </tr>
                 <%                                    try {
                         CompradorDAO cDB = new CompradorDAO();
@@ -35,7 +39,7 @@
                         for (Comprador c : lista) {
                 %>
                 <tr>
-                    <td><%=c.getIdComprador()%></td>
+                   
                     <td><%=c.getNome()%></td>
                     <td><%=c.getEmail()%></td>
                     <td><%=c.getCpf()%></td>
@@ -44,7 +48,7 @@
 
 
                     <td ><a href="form_alterar_comprador.jsp?idComprador=<%=c.getIdComprador()%>"><img src="imagens/alterar.png" border="0"></a></td>
-                    <td><a href="excluir_comprador.do?idComprador=<%=c.getIdComprador()%>"><img src="imagens/excluir.png" border="0"></a></td>
+                    
 
                 </tr>
                 <%

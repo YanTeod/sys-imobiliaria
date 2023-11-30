@@ -11,18 +11,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/listar.css" rel="stylesheet">
         <title>Lista de Imóveis</title>
     </head>
     <body>
         <div>
             <%@include file="menu.jsp" %>
         </div>
+        <br><br><br><br>
         <div class="opcoes">
-            <h2>Lista de Imóveis <a href=form_inserir_imovel.jsp> (novo imóvel) </a></h2>
+            <div class="title">
+                <h2>Lista de Imóveis</h2>
+                <h3><img src="imagens/adicionar.png"><a href=form_inserir_imovel.jsp> Novo Imóvel </a><img src="imagens/adicionar.png"></h3>
+            </div>
+            <br>
             <table>
                 <tr>
-                    <td>ID</td>
+
                     <td>TIPO</td>
                     <td>PREÇOM2</td>
                     <td>LOCALIZAÇÃO</td>
@@ -33,7 +38,7 @@
                     <td>VAGAS DE GARAGEM</td>
                     <td>STATUS</td>
                     <td>ALTERAR</td>
-                    <td>EXCLUIR</td>
+                 
                 </tr>
                 <%                                    try {
                         ImoveisDAO iDB = new ImoveisDAO();
@@ -43,7 +48,7 @@
                         for (Imoveis i : lista) {
                 %>
                 <tr>
-                    <td><%=i.getIdImovel()%></td>
+
                     <td><%=i.getTipo()%></td>
                     <td><%=i.getPrecoM2()%></td>
                     <td><%=i.getLocalizacao()%></td>
@@ -72,7 +77,7 @@
 
 
                     <td align="center"><a href="form_alterar_imovel.jsp?idImovel=<%=i.getIdImovel()%>"><img src="imagens/alterar.png"></a></td>
-                    <td align="center"><a href="excluir_imovel.do?idImovel=<%=i.getIdImovel()%>"><img src="imagens/excluir.png"></a></td>
+                    
 
                 </tr>
                 <%

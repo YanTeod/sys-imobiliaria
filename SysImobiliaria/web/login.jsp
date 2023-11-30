@@ -36,20 +36,15 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1" class="text-uppercase">Usuário</label>
                                     <input type="text" name="login" size="20" class="form-control" placeholder="">
-
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1" class="text-uppercase">Senha</label>
                                     <input type="password" name="senha" size="20" class="form-control" placeholder="">
                                 </div>
-
-
                                 <div class="form-check">                                   
                                     <button type="submit" class="btn btn-login float-right">Logar</button>
                                 </div>
-
                             </form>
-                            <div class="copy-text">Criado por Jean <i class="fa fa-heart"></i></div>
                         </div>
                         <div class="col-md-8 banner-sec">
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -86,8 +81,7 @@
                                             </div>	
                                         </div>
                                     </div>
-                                </div>	   
-
+                                </div>
                             </div>
                         </div>
                     </div>

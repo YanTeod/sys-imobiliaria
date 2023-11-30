@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/aqueles.css" rel="stylesheet">
         
         <title>Inserir Venda</title>
     </head>
@@ -19,9 +19,11 @@
         <div>
             <%@include file="menu.jsp" %>
         </div>
-        <div class="opcoes">
-
+        <br><br><br><br>
+        <div class="title ">
             <h2>Inserir Venda</h2>
+        </div>
+        <div class="opcoes">
             <form name="form_imovel" action="inserir_relatorio.do" method="post" > 
                 <table>
                     <tr>
@@ -115,15 +117,15 @@
                     </tr>
                     <tr>
                         <td>Visitas:</td>
-                        <td><input type="text" name="visitas" /></td>
+                        <td><input type="text" name="visitas" value="0" /></td>
                     </tr>
                     <tr>
                         <td>Telefonemas:</td>
-                        <td><input type="text" name="telefonemas" /></td>
+                        <td><input type="text" name="telefonemas" value="0" /></td>
                     </tr>
                     <tr>
                         <td>Propostas:</td>
-                        <td><input type="text" name="telefonemas" /></td>
+                        <td><input type="text" name="telefonemas" value="0" /></td>
                     </tr>
                     <tr>
                         <td>Vendido:</td>

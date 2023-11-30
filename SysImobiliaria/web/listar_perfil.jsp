@@ -9,21 +9,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/demais.css" rel="stylesheet">
+        <link href="css/listar.css" rel="stylesheet">
         <title>Perfis</title>
     </head>
     <body>
         <div >
             <%@include file="menu.jsp" %>
         </div>
+        <br><br><br><br>
         <div class="opcoes">
-            <h3>Lista de Perfis ( <img src="imagens/novo.png" align="top"><a href="form_inserir_perfil.jsp">Novo</a> )</h3>
+            <div class="title">
+                <h2>Lista de Perfis</h2>
+                <h3><img src="imagens/adicionar.png"><a href="form_inserir_perfil.jsp"> Novo Perfil </a><img src="imagens/adicionar.png"></h3>
+            </div>
+            <br>
             <table>
                 <tr>
-                    <td>ID</td>
+                 
                     <td>PERFIL</td>
                     <td>ALTERAR</td>
-                    <td>EXCLUIR</td>
+                
                     <td>GERENCIAR MENUS</td>
                 </tr>
                 <%     
@@ -36,10 +41,10 @@
                 %>
                 <tr>
                 <tr>
-                    <td><%=p.getIdPerfil()%></td>
+                  
                     <td><%=p.getPerfil()%></td>
                     <td><a href="form_alterar_perfil.jsp?id=<%=p.getIdPerfil()%>"><img src="imagens/alterar.png"></a></td>
-                    <td><a href="excluir_perfil.do?id=<%=p.getIdPerfil()%>"><img src="imagens/excluir.png" border="0"></a></td>
+                   
                     <td><a href="form_gerenciar_menu_perfil.jsp?id=<%=p.getIdPerfil()%>"><img src="imagens/gerenciar.png"></a></td>
                 </tr>
                 <%
