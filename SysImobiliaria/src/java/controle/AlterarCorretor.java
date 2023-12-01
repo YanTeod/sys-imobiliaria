@@ -16,10 +16,10 @@ public class AlterarCorretor extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            
+
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AlterarCorretor</title>");  
+            out.println("<title>Servlet AlterarCorretor</title>");
             out.println("</head>");
             out.println("<body>");
 
@@ -28,6 +28,7 @@ public class AlterarCorretor extends HttpServlet {
             String nomeCorretor = request.getParameter("nomeCorretor");
             String login = request.getParameter("login");
             String senha = request.getParameter("senha");
+            String status = request.getParameter("status");
 
             if (nomeCorretor == null || nomeCorretor.equals("")) {
                 out.print("O campo Nome deve ser preenchido!");
@@ -35,9 +36,9 @@ public class AlterarCorretor extends HttpServlet {
                 out.print("O campo Login deve ser preenchido!");
             } else if (senha == null || senha.equals("")) {
                 out.print("O campo Senha deve ser preenchido!");
-            } else if (idPerfil<1) {
+            } else if (idPerfil < 1) {
                 out.print("O campo Perfil deve ser preenchido!");
-            } else if (idCorretor<1) {
+            } else if (idCorretor < 1) {
                 out.print("O ID do usuário não encontrado!");
             } else {
                 try {
@@ -47,6 +48,7 @@ public class AlterarCorretor extends HttpServlet {
                     c.setNomeCorretor(nomeCorretor);
                     c.setLogin(login);
                     c.setSenha(senha);
+                    c.setStatus(status);
                     CorretorDAO cDB = new CorretorDAO();
                     cDB.conectar();
                     cDB.alterar(c);
@@ -62,10 +64,10 @@ public class AlterarCorretor extends HttpServlet {
             }
             out.println("</body>");
             out.println("</html>");
-        
-    }finally { 
+
+        } finally {
             out.close();
-    }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -91,26 +91,26 @@
                         <td>
                             <select name="idProprietario" size="1">
                                 <option value="">Escolha um Proprietário</option>
-                                <%                                                try {
+                                <% try {
                                         ProprietarioDAO pDB = new ProprietarioDAO();
                                         pDB.conectar();
                                         ArrayList<Proprietario> lista = pDB.listar();
 
                                         for (Proprietario p : lista) {
-                                            out.println("<option value='" + p.getIdProprietario() + "'>" + p.getNome() + "</option>");
+                                            // Verifica se o status do proprietário é true antes de adicionar a opção
+                                            if (p.isStatus()) {
+                                                out.println("<option value='" + p.getIdProprietario() + "'>" + p.getNome() + "</option>");
+                                            }
                                         }
-
                                     } catch (Exception e) {
                                         out.print(e);
-                                    }
-
-                                %>
+                }%>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <br><br>
-                        <td><input type="submit" value="Salvar" /> </td>
+                    <br><br>
+                    <td><input type="submit" value="Salvar" /> </td>
                     </tr>
                 </table>
             </form>

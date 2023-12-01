@@ -212,7 +212,7 @@
                     <td> <%=rela.getVisitas()%></td>
                     <td><%=rela.getValorVenda()%></td>
                     <td><%=rela.getCustos()%></td>
-                    <td><%=rela.getComissao()%></td>
+                    <td><%=rela.getComissao()%>%</td>
                     <td>
                         <%
                             if (rela.isParceria()) {

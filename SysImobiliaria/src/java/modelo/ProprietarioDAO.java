@@ -12,13 +12,14 @@ public class ProprietarioDAO extends DataBaseDAO {
 
     public void inserir(Proprietario proprietario) throws Exception {
         PreparedStatement pst;
-        String sql = "INSERT INTO proprietario (nome,email,cpf,telefone) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO proprietario (nome,email,cpf,telefone,status) VALUES (?,?,?,?,?)";
         pst = conn.prepareStatement(sql);
 
         pst.setString(1, proprietario.getNome());
         pst.setString(2, proprietario.getEmail());
         pst.setString(3, proprietario.getCpf());
         pst.setString(4, proprietario.getTelefone());
+        pst.setBoolean(5, true);
 
         pst.execute();
     }
@@ -37,6 +38,7 @@ public class ProprietarioDAO extends DataBaseDAO {
             p.setEmail(rs.getString("email"));
             p.setCpf(rs.getString("cpf"));
             p.setTelefone(rs.getString("telefone"));
+            p.setStatus(rs.getBoolean("status"));
             lista.add(p);
         }
         return lista;
@@ -52,13 +54,14 @@ public class ProprietarioDAO extends DataBaseDAO {
 
     public void alterar(Proprietario proprietario) throws Exception {
         PreparedStatement pst;
-        String sql = "UPDATE proprietario SET nome=?,email=?,cpf=?,telefone=? WHERE idProprietario=?";
+        String sql = "UPDATE proprietario SET nome=?,email=?,cpf=?,telefone=?,status=? WHERE idProprietario=?";
         pst = conn.prepareStatement(sql);
         pst.setString(1, proprietario.getNome());
         pst.setString(2, proprietario.getEmail());
         pst.setString(3, proprietario.getCpf());
         pst.setString(4, proprietario.getTelefone());
         pst.setInt(5, proprietario.getIdProprietario());
+        pst.setBoolean(6, proprietario.isStatus());
 
         pst.execute();
     }
@@ -76,6 +79,7 @@ public class ProprietarioDAO extends DataBaseDAO {
             proprietario.setEmail(rs.getString("email"));
             proprietario.setCpf(rs.getString("cpf"));
             proprietario.setTelefone(rs.getString("telefone"));
+            proprietario.setStatus(rs.getBoolean("status"));
 
         }
         return proprietario;

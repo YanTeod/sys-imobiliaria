@@ -12,12 +12,13 @@ public class CorretorDAO extends DataBaseDAO {
 
     public void inserir(Corretor corretor) throws Exception {
         PreparedStatement pst;
-        String sql = "INSERT INTO corretor (idPerfil, nomeCorretor, login, senha) VALUES(?, ?, ?, md5(?))";
+        String sql = "INSERT INTO corretor (idPerfil, nomeCorretor, login, senha, status) VALUES(?, ?, ?, md5(?), ?)";
         pst = conn.prepareStatement(sql);
         pst.setInt(1, corretor.getIdPerfil());
         pst.setString(2, corretor.getNomeCorretor());
         pst.setString(3, corretor.getLogin());
         pst.setString(4, corretor.getSenha());
+        pst.setString(5, corretor.getStatus());
         pst.execute();
     }
 
@@ -36,11 +37,15 @@ public class CorretorDAO extends DataBaseDAO {
             c.setNomeCorretor(rs.getString("nomeCorretor"));
             c.setLogin(rs.getString("login"));
             c.setSenha(rs.getString("senha"));
+            c.setStatus(rs.getString("status"));
             c.setIdPerfil(rs.getInt("idPerfil"));
+            c.setStatus(rs.getString("status"));
+
             pDB.conectar();
             p = pDB.carregaPorId(c.getIdPerfil());
             pDB.desconectar();
             c.setPerfil(p);
+
             lista.add(c);
         }
 
@@ -58,13 +63,15 @@ public class CorretorDAO extends DataBaseDAO {
 
     public void alterar(Corretor corretor) throws Exception {
         PreparedStatement pst;
-        String sql = "UPDATE corretor SET idPerfil=?,nomeCorretor=?,login=?,senha=md5(?) WHERE idCorretor=?";
+        String sql = "UPDATE corretor SET idPerfil=?,nomeCorretor=?,login=?,senha=md5(?),status=? WHERE idCorretor=?";
         pst = conn.prepareStatement(sql);
         pst.setInt(1, corretor.getIdPerfil());
         pst.setString(2, corretor.getNomeCorretor());
         pst.setString(3, corretor.getLogin());
         pst.setString(4, corretor.getSenha());
-        pst.setInt(5, corretor.getIdCorretor());
+        pst.setString(5, corretor.getStatus());
+        pst.setInt(6, corretor.getIdCorretor());
+
         pst.execute();
     }
 
@@ -82,6 +89,7 @@ public class CorretorDAO extends DataBaseDAO {
             c.setLogin(rs.getString("login"));
             c.setNomeCorretor(rs.getString("nomeCorretor"));
             c.setSenha(rs.getString("senha"));
+            c.setStatus(rs.getString("status"));
             PerfilDAO pDB = new PerfilDAO();
             Perfil p = new Perfil();
             pDB.conectar();
@@ -109,6 +117,7 @@ public class CorretorDAO extends DataBaseDAO {
             c.setLogin(rs.getString("login"));
             c.setNomeCorretor(rs.getString("nomeCorretor"));
             c.setSenha(rs.getString("senha"));
+            c.setStatus(rs.getString("status"));
 
             PerfilDAO pDB = new PerfilDAO();
             pDB.conectar();

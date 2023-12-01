@@ -79,6 +79,15 @@
                         <td><input type="text" name="telefone" value="<%=proprietario.getTelefone()%>"  size="30" /> </td>
                     </tr>
                     <tr>
+                        <td>ATIVO:</td>
+                        <% if (proprietario.isStatus()) { %>
+                        <td><input type="checkbox" name="status" checked /></td>
+                            <%} else { %>
+                        <td><input type="checkbox" name="status"  /></td>
+                            <% }%>
+
+                    </tr>
+                    <tr>
                         <td></td>
                         <td><input type="submit" value="Alterar"></td>
                     </tr>

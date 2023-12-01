@@ -28,6 +28,7 @@ public class AlterarProprietario extends HttpServlet {
             String email = request.getParameter("email");
             String cpf = request.getParameter("cpf");
             String telefone = request.getParameter("telefone");
+            boolean status = request.getParameter("status") != null;
 
             if (nome == null || nome.equals("")) {
                 out.print("O campo Nome deve ser preenchido!");
@@ -49,6 +50,7 @@ public class AlterarProprietario extends HttpServlet {
                     proprietario.setEmail(email);
                     proprietario.setCpf(cpf);
                     proprietario.setTelefone(telefone);
+                    proprietario.setStatus(status);
 
                     ProprietarioDAO pDB = new ProprietarioDAO();
                     pDB.conectar();

@@ -26,12 +26,13 @@
             <br>
             <table>
                 <tr>
-                                                
+
                     <td>NOME</td>
                     <td>LOGIN</td>
                     <td>PERFIL</td>
+                    <td>STATUS</td>>
                     <td>ALTERAR</td>
-                 
+
                 </tr>
                 <%                                 try {
                         CorretorDAO cDB = new CorretorDAO();
@@ -41,12 +42,13 @@
                         for (Corretor c : lista) {
                 %>
                 <tr>
-                    
+
                     <td><%=c.getNomeCorretor()%></td>
                     <td><%=c.getLogin()%></td>
                     <td><%=c.getPerfil()%></td>
+                    <td><%=c.getStatus()%></td>
                     <td><a href="form_alterar_corretor.jsp?idCorretor=<%=c.getIdCorretor()%>"><img src="imagens/alterar.png"></a></td>
-                 
+
                 </tr>
                 <%
                         }

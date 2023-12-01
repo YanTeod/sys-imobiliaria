@@ -22,13 +22,14 @@
             <br>
             <table>
                 <tr>
-                 
+
                     <td>NOME</td>
                     <td>EMAIL</td>
                     <td>CPF</td>
                     <td>TELEFONE</td>
+                    <td>STATUS</td>
                     <td>ALTERAR</td>
-                
+
                 </tr>
                 <%                                    try {
                         ProprietarioDAO pDB = new ProprietarioDAO();
@@ -38,13 +39,24 @@
                         for (Proprietario p : lista) {
                 %>
                 <tr>
-                    
+
                     <td><%=p.getNome()%></td>
                     <td><%=p.getEmail()%></td>
                     <td><%=p.getCpf()%></td>
                     <td><%=p.getTelefone()%></td>
+                    <% if (p.isStatus()) { %>
+                    <td>ATIVO</td>  
+                    <%  } else {%>
+                    <td>INATIVO</td>   
+                    <%}%>
+
+
+
+
+
+
                     <td ><a href="form_alterar_proprietario.jsp?idProprietario=<%=p.getIdProprietario()%>"><img src="imagens/alterar.png"></a></td>
-                 
+
 
                 </tr>
                 <%

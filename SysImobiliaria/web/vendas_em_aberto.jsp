@@ -283,7 +283,7 @@
 
                         <td><%=rela.getCustos()%></td>
 
-                        <td><%=rela.getComissao()%></td>
+                        <td><%=rela.getComissao()%>%</td>
 
                         <td><%=rela.getValorVenda()%></td>
 

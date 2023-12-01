@@ -12,6 +12,7 @@ public class Proprietario {
     private String email;
     private String cpf;
     private String telefone;
+    private boolean status;
     ArrayList<Proprietario> listaProprietarios;
 
 }

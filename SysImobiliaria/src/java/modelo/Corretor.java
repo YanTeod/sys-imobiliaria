@@ -13,16 +13,11 @@ public class Corretor {
     private String Status;
     private Perfil perfil;
     private int idPerfil;
+    private String status;
     ArrayList<Corretor> listaCorretores;
 
-    public Corretor() {
-    }
+   
 
-    public Corretor(String nome, String login, String senha, int idPerfil) {
-        this.nomeCorretor = nomeCorretor;
-        this.login = login;
-        this.senha = senha;
-        this.idPerfil = idPerfil;
-    }
+   
     
 }

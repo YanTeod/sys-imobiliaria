@@ -107,6 +107,13 @@
                         <td>Senha:</td>
                         <td><input type="password" name="senha" value="<%=corretores.getSenha()%>"  size="30" /> </td>
                     </tr>
+
+                    <tr>
+                        <td>STATUS:</td>
+                    <br>
+                    <td><input type="radio" name="status" value="ATIVO" checked=""> ATIVO </td>
+                    <td><input type="radio" name="status" value="INATIVO"> INATIVO </td>
+                    </tr>
                     <tr>
                         <td></td>
                         <td><input type="submit" value="Alterar"></td>
