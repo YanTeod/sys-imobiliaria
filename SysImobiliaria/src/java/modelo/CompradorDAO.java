@@ -14,7 +14,7 @@ public class CompradorDAO extends DataBaseDAO {
     
     public void inserir(Comprador comprador) throws Exception {
         PreparedStatement pst;
-        String sql = "INSERT INTO comprador (nome,email,telefone,cpf) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO comprador (nome,email,telefone,cpf,status) VALUES (?,?,?,?,?)";
         pst = conn.prepareStatement(sql);
         
         
@@ -22,6 +22,7 @@ public class CompradorDAO extends DataBaseDAO {
         pst.setString(2, comprador.getEmail());
         pst.setString(3, comprador.getTelefone());
         pst.setString(4, comprador.getCpf());
+        pst.setBoolean(5, true);
         
         pst.execute();
         
@@ -40,6 +41,7 @@ public class CompradorDAO extends DataBaseDAO {
             c.setEmail(rs.getString("email"));
             c.setCpf(rs.getString("cpf"));
             c.setTelefone(rs.getString("telefone"));
+            c.setStatus(rs.getBoolean("status"));
             lista.add(c);
         }
         return lista;
@@ -53,13 +55,14 @@ public class CompradorDAO extends DataBaseDAO {
     }
       public void alterar(Comprador comprador) throws Exception {
         PreparedStatement pst;
-        String sql = "UPDATE comprador SET nome=?,email=?,cpf=?,telefone=? WHERE idComprador=?";
+        String sql = "UPDATE comprador SET nome=?,email=?,cpf=?,telefone=?,status=? WHERE idComprador=?";
         pst = conn.prepareStatement(sql);
         pst.setString(1, comprador.getNome());
         pst.setString(2, comprador.getEmail());
         pst.setString(3, comprador.getCpf());
         pst.setString(4, comprador.getTelefone());
-        pst.setInt(5, comprador.getIdComprador());
+        pst.setBoolean(5, comprador.isStatus());
+        pst.setInt(6, comprador.getIdComprador());
 
         pst.execute();
     }
@@ -76,6 +79,7 @@ public class CompradorDAO extends DataBaseDAO {
             comprador.setEmail(rs.getString("email"));
             comprador.setCpf(rs.getString("cpf"));
             comprador.setTelefone(rs.getString("telefone"));
+            comprador.setStatus(rs.getBoolean("status"));
 
         }
         return comprador;

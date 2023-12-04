@@ -38,7 +38,7 @@
             <br>
             <table>
                 <tr>
-                  
+
                     <td>Imovel</td>                 
                     <td>Tipo</td>    
                     <td>Corretor</td>
@@ -56,7 +56,7 @@
                     <td>Parceria</td>
                     <td>Comissão</td>
                     <td>Lucro</td>
-                 
+
 
                 </tr>
                 <%                    try {
@@ -70,10 +70,9 @@
                                 DateTimeFormatter dtFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 %>
                 <tr>
-                   
+
                     <td>
                         <%
-
                             try {
                                 int idImovel = rela.getImovel().getIdImovel();
                                 ImoveisDAO iBD = new ImoveisDAO();
@@ -187,59 +186,30 @@
                     </td>
                     <td>
                         <%
-                            try {
-                                int idImovel = rela.getImovel().getIdImovel();
-                                ImoveisDAO iBD = new ImoveisDAO();
-                                iBD.conectar();
-                                Imoveis i = iBD.carregarPorId(idImovel);
-                                iBD.desconectar();
-
-                                LocalDate dataInicial = i.getDataInicial();
-
-                                if (dataInicial != null && dataFinal != null) {
-                                    long diasDiferenca = ChronoUnit.DAYS.between(dataInicial, dataFinal);
-                                    out.print(diasDiferenca + " dias");
-                                } else {
-                                    out.print("Datas não definidas");
-                                }
-                            } catch (Exception erro) {
-                                out.print(erro);
-                            }
-                        %>
-                    </td>                    
-                    <td> <%=rela.getTelefonemas()%> </td>
-                    <td> <%=rela.getPropostas()%></td>
-                    <td> <%=rela.getVisitas()%></td>
-                    <td><%=rela.getValorVenda()%></td>
-                    <td><%=rela.getCustos()%></td>
-                    <td><%=rela.getComissao()%>%</td>
-                    <td>
-                        <%
-                            if (rela.isParceria()) {
-                                out.print("Venda com parceria");
+                            long diferencaEmDias = relaDB.calcularDiferencaEmDias(rela);
+                            if (diferencaEmDias >= 0) {
+                                out.print(diferencaEmDias + " dias");
                             } else {
-                                out.print("Venda sem parceria");
+                                out.print("Datas não definidas");
                             }
                         %>
+                    </td> 
+                    <%
+                        
+                        String tipoVenda = relaDB.obterTipoVenda(rela);
+                        String valorComissao = relaDB.calcularComissao(rela);
+                        String valorLucro = relaDB.calcularLucro(rela);
+                    %>
+                    <td><%=rela.getTelefonemas()%></td>
+                    <td><%=rela.getPropostas()%></td>
+                    <td><%=rela.getVisitas()%></td>
+                    <td>R$<%=rela.getValorVenda()%></td>
+                    <td>R$<%=rela.getCustos()%></td>
+                    <td><%=rela.getComissao()%>%</td>
+                    <td><%=tipoVenda%></td>
+                    <td><%=valorComissao%></td>
+                    <td><%=valorLucro%></td>
 
-                    </td>  
-                    <td><%                        if (rela.isParceria()) {
-                            out.print((rela.getValorVenda() * rela.getComissao() / 100) / 2);
-                        } else {
-                            out.print(rela.getValorVenda() * rela.getComissao() / 100);
-                        }
-
-                        %>
-                    </td>
-                    <td><%                        if (rela.isParceria()) {
-                            out.print(((rela.getValorVenda() * rela.getComissao() / 100) / 2) - rela.getCustos());
-                        } else {
-                            out.print((rela.getValorVenda() * rela.getComissao() / 100) - rela.getCustos());
-                        }
-
-                        %>
-                    </td>
-                   
                 </tr>
                 <%}
                         }

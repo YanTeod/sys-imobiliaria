@@ -43,30 +43,25 @@
                             if (rela.getIdRelatorio() > 0) {
                     %>
                     <tr>
-                        <td>ID:</td>
-                        <td><%=rela.getIdRelatorio()%> <input type="hidden" name="idRelatorio" value="<%=rela.getIdRelatorio()%>"> </td>
+
+                        <td><input type="hidden" name="idRelatorio" value="<%=rela.getIdRelatorio()%>"> </td>
                     </tr>
                     <tr>
                         <td>Imovel:</td>
-                        <td>
-                            <select name="idImovel" size="1">
-                                <option value="">Escolha um Imovel</option>
-                                <%                                                try {
-                                        ImoveisDAO iDB = new ImoveisDAO();
-                                        iDB.conectar();
-                                        ArrayList<Imoveis> lista = iDB.listar();
-
-                                        for (Imoveis i : lista) {
-                                            out.println("<option value='" + i.getIdImovel() + "'>" + i.getLocalizacao() + "</option>");
-                                        }
-
-                                    } catch (Exception e) {
-                                        out.print(e);
-                                    }
-
-                                %>
-                            </select>
-                        </td>
+                        <td><%
+                            try {
+                                int idImovel = rela.getImovel().getIdImovel();
+                                ImoveisDAO iBD = new ImoveisDAO();
+                                iBD.conectar();
+                                Imoveis i = iBD.carregarPorId(idImovel);
+                                iBD.desconectar();
+                            %>
+                            <%=i.getLocalizacao()%>
+                            <%
+                                } catch (Exception erro) {
+                                    out.print(erro);
+                                }
+                            %><input type="hidden" name="idImovel" value="<%=rela.getImovel().getIdImovel()%>"> </td>
                     </tr>
 
                     <tr>
@@ -86,14 +81,19 @@
                         <td><input type="text" name="valorVenda" value="<%=rela.getValorVenda()%>"  size="50" /> </td>
                     </tr>
                     <tr>
-                        <td>Parceria:</td>
+                        <td>PARCERIA:</td>
+                        <% if (rela.isParceria()) { %>
+                        <td><input type="checkbox" name="parceria" checked /></td>
+                            <%} else { %>
                         <td><input type="checkbox" name="parceria"  /></td>
+                            <% }%>
+
                     </tr>
                     <tr>
                         <td>Corretor:</td>
                         <td>
                             <select name="idCorretor" size="1">
-                                <option value="">Escolha um Corretor</option>
+                                <option value="0">Escolha um Corretor</option>
                                 <%                                                try {
                                         CorretorDAO cDB = new CorretorDAO();
                                         cDB.conectar();
@@ -118,21 +118,21 @@
                         <td>Comprador:</td>
                         <td>
                             <select name="idComprador" size="1">
-                                <option value="">Escolha um Comprador</option>
-                                <%                                    try {
-                                        CompradorDAO cDB = new CompradorDAO();
-                                        cDB.conectar();
-                                        ArrayList<Comprador> lista = cDB.listar();
+                                <option value="2">Escolha um Comprador</option>
+                                <% try {
+                                        CompradorDAO comDB = new CompradorDAO();
+                                        comDB.conectar();
+                                        ArrayList<Comprador> lista = comDB.listar();
 
-                                        for (Comprador c : lista) {
-                                            out.println("<option value='" + c.getIdComprador() + "'>" + c.getNome() + "</option>");
+                                        for (Comprador com : lista) {
+                                            if (com.isStatus()) { // Verifica se o status do comprador é verdadeiro
+                                                out.println("<option value='" + com.getIdComprador() + "'>" + com.getNome() + "</option>");
+                                            }
                                         }
 
                                     } catch (Exception e) {
                                         out.print(e);
-                                    }
-
-                                %>
+                                    }%>
                             </select>
                         </td>
                     </tr>
@@ -141,10 +141,27 @@
                         <td>Data Final:</td>
                         <td><input type="text" name="dataFinal" placeholder="DD/MM/YYYY" /></td>
                     </tr>
-                    
+                     <tr>
+
+                        <td><input type="hidden" name="telefonemas" value="<%=rela.getTelefonemas()%>"> </td>
+                    </tr>
+                     <tr>
+
+                        <td><input type="hidden" name="propostas" value="<%=rela.getPropostas()%>"> </td>
+                    </tr>
+                     <tr>
+
+                        <td><input type="hidden" name="visitas" value="<%=rela.getVisitas()%>"> </td>
+                    </tr>
+
                     <tr>
-                        <td>Vendido:</td>
-                        <td><input type="checkbox" name="status" /></td>
+                        <td>VENDIDO:</td>
+                        <% if (rela.isStatus()) { %>
+                        <td><input type="checkbox" name="status" checked /></td>
+                            <%} else { %>
+                        <td><input type="checkbox" name="status"  /></td>
+                            <% }%>
+
                     </tr>
                     <tr>
                         <td></td>

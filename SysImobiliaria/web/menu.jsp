@@ -15,47 +15,60 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title></title>
-    <nav class="navbar header-top fixed-top navbar-expand-lg  ">
-        <div class="login">
-            <%
-Corretor corretor = new Corretor();
-try{
-    corretor = (Corretor) session.getAttribute("corretor");
-    out.print(corretor.getNomeCorretor()+ " (<a href='sair.jsp'>Sair</a>)");
-    if (corretor == null){
-        response.sendRedirect("login.jsp");
-    }
-    %>
-        </div>
-        <%
-        PerfilDAO pDB = new PerfilDAO();
-        pDB.conectar();
-        ArrayList<Menu> listaMenu = pDB.menusVinculados(corretor.getIdPerfil());
-        
-        for(Menu m: listaMenu){
-        %>
-        <div class="home">
-            <br>
-        <table>
-            <nav >
-                <a class="navbar-brand" href="<%=m.getLink()%>">
-                    <%=m.getMenu()%>
-                </a> 
-            </nav>
-        </table>
-                </div>
     </head>
-</body>
-<%
-    }
-    pDB.desconectar();
-%>
-</body>
-</html>
-<%
-    } catch (Exception e) {
-        //out.print(e);
-        response.sendRedirect("login.jsp");
-    }
 
-%>
+    <body>
+        <nav class="navbar header-top fixed-top navbar-expand-lg">
+            <div class="home">
+                <br>
+                <table >
+                    <div class="navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li>
+                                <img src="imagens/logo.png">
+                            </li>
+                            <%
+                                Corretor corretor = new Corretor();
+                                try {
+                                    corretor = (Corretor) session.getAttribute("corretor");
+                                    if (corretor == null) {
+                                        response.sendRedirect("login.jsp");
+                                    }
+                            %>
+                            <%
+                                PerfilDAO pDB = new PerfilDAO();
+                                pDB.conectar();
+                                ArrayList<Menu> listaMenu = pDB.menusVinculados(corretor.getIdPerfil());
+
+                                for (Menu m : listaMenu) {
+                            %>
+                            
+                            <li class="li">
+                                <a class="nav-link" href="<%=m.getLink()%>">
+                                    <%=m.getMenu()%>
+                                </a>
+                            </li>
+                            <%
+                                }
+                                pDB.desconectar();
+                            %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sair.jsp">
+                                    Sair
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </table>
+            </div>
+        </nav>
+    </body>
+
+    <%
+        } catch (Exception e) {
+            //out.print(e);
+            response.sendRedirect("login.jsp");
+        }
+    %>
+
+</html>

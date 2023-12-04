@@ -13,6 +13,7 @@ public class Comprador {
     private String email;
     private String telefone;
     private String cpf;
+    private boolean status;
     private ArrayList<Comprador> listaCompradores;
 
 }

@@ -37,8 +37,8 @@
                                 if (imovel.getIdImovel() > 0) {
                         %>
                         <tr>
-                        <label>ID:</label>
-                        <%=imovel.getIdImovel()%> <input type="hidden" name="idImovel" value="<%=imovel.getIdImovel()%>">
+                      
+                        <input type="hidden" name="idImovel" value="<%=imovel.getIdImovel()%>">
                         </tr>
                         <br>
                         <tr>
@@ -49,7 +49,7 @@
                         </tr>
                         <br><br>
                         <tr>
-                        <label>PREÇO M2:</label>
+                        <label>PREÇO METRO QUADRADO:</label>
                         <input type="text" name="precoM2" value="<%=imovel.getPrecoM2()%>" size="10">
                         </tr>
                         <tr>

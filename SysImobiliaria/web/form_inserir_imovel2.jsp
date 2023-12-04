@@ -63,7 +63,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>PreçoM2:</td>
+                        <td>Preço metro quadrado:</td>
                         <td><input type="text" name="precoM2" size="30" /> </td>
                     </tr>
                     <tr>

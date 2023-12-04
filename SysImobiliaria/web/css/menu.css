@@ -1,44 +1,39 @@
-body {
-    background-color: #fff;
-    margin: 0;
-    padding: 0;
+
+.navbar {
+    /* Cor de fundo da barra de navegação */
 }
 
-.navbar { /* Cor de fundo da barra de navegação */
-}
 
-.navbar-brand {
-    color: blue !important; /* Cor do texto do menu */
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.navbar-brand:hover {
-    color: green !important; /* Cor do texto do menu ao passar o mouse */
-}
 
 .login {
     position: fixed;
     top: 10px;
     font-size: 18px;
     right: 10px;
-    color: blue; /* Cor do texto do login */
+    color: blue;
+    /* Cor do texto do login */
 }
 
 .home {
-    padding: 8px;
-    margin: auto;
-    text-align: center; /* Centraliza o texto do menu */
+    padding: 0px;
+   margin: auto;
+    /* Centraliza o texto do menu */
 }
 
 /* Estilo para o link dentro da tabela */
 .home a {
-    color: red; /* Cor do link do menu */
+    color: blue;
+    /* Cor do link do menu */
     text-decoration: none;
     font-weight: bold;
 }
 
 /* Estilo para o link ao passar o mouse */
 .home a:hover {
-    color: #0056b3; /* Cor do link ao passar o mouse */
+    color: green;
+    /* Cor do link ao passar o mouse */
+}
+
+li{
+    padding-right: 30px;
 }

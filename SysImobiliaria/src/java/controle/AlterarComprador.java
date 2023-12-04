@@ -28,6 +28,7 @@ public class AlterarComprador extends HttpServlet {
             String email = request.getParameter("email");
             String cpf = request.getParameter("cpf");
             String telefone = request.getParameter("telefone");
+            boolean status = request.getParameter("status") != null;
 
             if (nome == null || nome.equals("")) {
                 out.print("O campo Nome deve ser preenchido!");
@@ -49,6 +50,7 @@ public class AlterarComprador extends HttpServlet {
                     comprador.setEmail(email);
                     comprador.setCpf(cpf);
                     comprador.setTelefone(telefone);
+                    comprador.setStatus(status);
 
                     CompradorDAO cDB = new CompradorDAO();
                     cDB.conectar();
@@ -110,5 +112,3 @@ public class AlterarComprador extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 }
-
-

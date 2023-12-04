@@ -27,6 +27,7 @@ public class InserirComprador extends HttpServlet {
             String email = request.getParameter("email");
             String telefone = request.getParameter("telefone");
             String cpf = request.getParameter("cpf");
+            
 
             if (nome == null || nome.equals("")) {
                 out.print("O campo Nome deve ser preenchido!");

@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -195,18 +196,70 @@ public class RelatoriosDAO extends DataBaseDAO {
 
         return listaRelatorios;
     }
-    
-    public void ContadorRelatorios(Relatorios relatorio) throws Exception{
+
+    public void ContadorRelatorios(Relatorios relatorio) throws Exception {
         PreparedStatement pst;
         String sql = "UPDATE relatorios SET visitas=?,telefonemas=?,propostas=? WHERE idRelatorio=?";
         pst = conn.prepareStatement(sql);
-        
+
         pst.setInt(1, relatorio.getVisitas());
         pst.setInt(2, relatorio.getTelefonemas());
         pst.setInt(3, relatorio.getPropostas());
         pst.setInt(4, relatorio.getIdRelatorio());
-        
+
         pst.execute();
+    }
+
+    // Método para calcular a diferença em dias entre a data inicial e a data final de um relatório
+    public long calcularDiferencaEmDias(Relatorios relatorio) {
+        try {
+            ImoveisDAO imoveisDAO = new ImoveisDAO();
+            imoveisDAO.conectar();
+
+            Imoveis imovel = imoveisDAO.carregarPorId(relatorio.getImovel().getIdImovel());
+
+            LocalDate dataInicial = imovel.getDataInicial();
+            LocalDate dataFinal = relatorio.getDataFinal();
+
+            imoveisDAO.desconectar();
+
+            if (dataInicial != null && dataFinal != null) {
+                return ChronoUnit.DAYS.between(dataInicial, dataFinal);
+            } else {
+                return -1; // Valor de retorno para indicar que as datas não estão definidas
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1; // Em caso de erro, também retornamos -1
+        }
+    }
+
+    public String obterTipoVenda(Relatorios relatorio) {
+        if (relatorio.isParceria()) {
+            return "Venda com parceria";
+        } else {
+            return "Venda sem parceria";
+        }
+    }
+
+    public String calcularComissao(Relatorios relatorio) {
+        double valorComissao;
+        if (relatorio.isParceria()) {
+            valorComissao = (relatorio.getValorVenda() * relatorio.getComissao() / 100) / 2;
+        } else {
+            valorComissao = relatorio.getValorVenda() * relatorio.getComissao() / 100;
+        }
+        return "R$" + valorComissao;
+    }
+
+    public String calcularLucro(Relatorios relatorio) {
+        double valorLucro;
+        if (relatorio.isParceria()) {
+            valorLucro = ((relatorio.getValorVenda() * relatorio.getComissao() / 100) / 2) - relatorio.getCustos();
+        } else {
+            valorLucro = (relatorio.getValorVenda() * relatorio.getComissao() / 100) - relatorio.getCustos();
+        }
+        return "R$" + valorLucro;
     }
 
 }

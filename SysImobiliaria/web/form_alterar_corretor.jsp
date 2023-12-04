@@ -60,8 +60,8 @@
                             if (corretores.getIdCorretor() > 0) {
                     %>
                     <tr>
-                        <td>ID:</td>
-                        <td><%=corretores.getIdCorretor()%> <input type="hidden" name="idCorretor" value="<%=corretores.getIdCorretor()%>"> </td>
+                        
+                        <td><input type="hidden" name="idCorretor" value="<%=corretores.getIdCorretor()%>"> </td>
                     </tr>
                     <tr>
                         <td>Perfil:</td>

@@ -281,11 +281,11 @@
                             </div>
                         </td>
 
-                        <td><%=rela.getCustos()%></td>
+                        <td>R$<%=rela.getCustos()%></td>
 
                         <td><%=rela.getComissao()%>%</td>
 
-                        <td><%=rela.getValorVenda()%></td>
+                        <td>R$<%=rela.getValorVenda()%></td>
 
                         <td>
                             <%

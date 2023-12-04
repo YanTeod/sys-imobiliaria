@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/aqueles.css" rel="stylesheet">
-        
+
         <title>Inserir Venda</title>
     </head>
     <body>
@@ -37,7 +37,7 @@
                                         ArrayList<Imoveis> lista = iDB.listar();
 
                                         for (Imoveis i : lista) {
-                                            out.println("<option value='" + i.getIdImovel()+ "'>" + i.getLocalizacao()+ "</option>");
+                                            out.println("<option value='" + i.getIdImovel() + "'>" + i.getLocalizacao() + "</option>");
                                         }
 
                                     } catch (Exception e) {
@@ -48,18 +48,18 @@
                             </select>
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td>Custos:</td>
-                        <td><input type="text" name="custos" size="30" /> </td>
+                        <td><input type="text" name="custos" size="30" value="0"/> </td>
                     </tr>
                     <tr>
                         <td>Comissão:</td>
-                        <td><input type="text" name="comissao" placeholder="%" /></td>
+                        <td><input type="text" name="comissao" placeholder="%" value="0" /></td>
                     </tr>
                     <tr>
                         <td>Valor de Venda:</td>
-                        <td><input type="text" name="valorVenda" size="30" /> </td>
+                        <td><input type="text" name="valorVenda" size="30" value="0"/> </td>
                     </tr>
                     <tr>
                         <td>Parceria:</td>
@@ -87,30 +87,31 @@
                             </select>
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td>Comprador:</td>
                         <td>
                             <select name="idComprador" size="1">
-                                <option value="">Escolha um Comprador</option>
-                                <%                                                try {
+                                <option value="2">Escolha um Comprador</option>
+                                <% try {
                                         CompradorDAO comDB = new CompradorDAO();
                                         comDB.conectar();
                                         ArrayList<Comprador> lista = comDB.listar();
 
                                         for (Comprador com : lista) {
-                                            out.println("<option value='" + com.getIdComprador() + "'>" + com.getNome() + "</option>");
+                                            if (com.isStatus()) { // Verifica se o status do comprador é verdadeiro
+                                                out.println("<option value='" + com.getIdComprador() + "'>" + com.getNome() + "</option>");
+                                            }
                                         }
 
                                     } catch (Exception e) {
                                         out.print(e);
-                                    }
-
-                                %>
+                }%>
                             </select>
                         </td>
                     </tr>
-                   
+
+
                     <tr>
                         <td>Data Final:</td>
                         <td><input type="text" name="dataFinal" placeholder="DD/MM/YYYY" /></td>

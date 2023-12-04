@@ -55,8 +55,8 @@
                             if (proprietario.getIdProprietario() > 0) {
                     %>
                     <tr>
-                        <td>ID:</td>
-                        <td><%=proprietario.getIdProprietario()%> <input type="hidden" name="idProprietario" value="<%=proprietario.getIdProprietario()%>"> </td>
+
+                        <td><input type="hidden" name="idProprietario" value="<%=proprietario.getIdProprietario()%>"> </td>
                     </tr>
                     <tr>
                         <td>Nome:</td>

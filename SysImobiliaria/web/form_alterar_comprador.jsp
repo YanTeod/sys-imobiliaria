@@ -55,8 +55,8 @@
                             if (comprador.getIdComprador() > 0) {
                     %>
                     <tr>
-                        <td>ID:</td>
-                        <td><%=comprador.getIdComprador()%> <input type="hidden" name="idComprador" value="<%=comprador.getIdComprador()%>"> </td>
+                       
+                        <td><input type="hidden" name="idComprador" value="<%=comprador.getIdComprador()%>"> </td>
                     </tr>
                     <tr>
                         <td>Nome:</td>
@@ -77,6 +77,16 @@
                     <tr>
                         <td>TELEFONE:</td>
                         <td><input type="text" name="telefone" value="<%=comprador.getTelefone()%>"  size="30" /> </td>
+                    </tr>
+                    <tr>
+                        <td>STATUS: </td><br>
+                          
+                            <% if (comprador.isStatus()) { %>
+                        <td>ATIVO <br><input type="checkbox" name="status" checked /></td>
+                            <%} else { %>
+                        <td>ATIVO<br> <input type="checkbox" name="status"  /></td>
+                            <% }%>
+
                     </tr>
 
                     <tr>

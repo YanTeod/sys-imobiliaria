@@ -16,123 +16,83 @@
         <title>Página Principal</title>
     </head>
     <body>
-
         <div>
-
             <%@include file="menu.jsp" %>
-
         </div>
-
-
-    <header>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url('https://www.contact2sale.com/wp-content/uploads/2022/02/corretagem-de-imoveis.jpg')">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="display-4">Corretora Imóbiliária</h2>
-                        <p class="lead">Credenciada pelo Conselho Regional de Corretores de Imóveis (Creci) para atuar tanto na intermediação de venda ou locação de imóveis quanto na administração de imóveis locados.</p>
-                    </div>
-                </div>
-                <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('https://www.ibresp.com.br/wp-content/uploads/2017/02/corretor-de-imoveis.jpg')">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="display-4">Helenice Catarina</h2>
-                        <p class="lead">Especializada na intermediação de imóveis novos e usados e na gestão estratégica de lançamentos imobiliários.</p>
-                    </div>
-                </div>
-                <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('https://blog.quadraimob.com.br/wp-content/uploads/2021/03/corretor-de-imoveis-780x450.jpeg')">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="display-4">Credibilidade</h2>
-                        <p class="lead">Credibilidade se conquista com grandes realizações.</p>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </header>
-
-    <!-- Page Content -->
+        <br><br><br>
     <section class="py-5 text-center">
         <div class="container"> 
             <h2 class="text-center">Helenice Catarina</h2>
+            <br>
             <p class="text-muted mb-5 text-center">Corretora de imóveis desde 1996. Especialista em venda, permutas, avaliações e principalmente em processos de financiamento imobiliário junto a todos os bancos do sistema financeiro habitacional inclusive consórcios. CRECI DF 6326.</p>
             <div class="row">
-                <div class="col-sm-6 col-lg-4 mb-3">
-                    <svg class="lnr text-primary services-icon">
-                        <use xlink:href="#lnr-magic-wand"></use>
-                    </svg>
-                    <h6>Os melhores imóveis novos ou usados</h6>
-                    <p class="text-muted">Temos uma preciosa carteira de imóveis usados, compondo um amplo e qualificado portfólio de imóveis na planta ou prontos.</p>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-3">
-                    <svg class="lnr text-primary services-icon">
-                        <use xlink:href="#lnr-heart"></use>
-                    </svg>
-                    <h6>Assessoria completa durante toda a jornada de Compra ou Venda</h6>
-                    <p class="text-muted">Assessoramos nossos clientes em toda a jornada de compra ou venda imobiliária, desde a busca pelo melhor negócio, passando pela aprovação de crédito (caso necessário) e culminando na assistência jurídica e legal.</p>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-3">
-                    <svg class="lnr text-primary services-icon">
-                        <use xlink:href="#lnr-rocket"></use>
-                    </svg>
-                    <h6>Avalie e anuncie seu imóvel de graça</h6>
-                    <p class="text-muted">Preparada para realizar uma ágil e justa avaliação, divulgar de maneira eficaz, negociar e acompanhar todo o processo de escritura e registro junto aos cartórios.</p>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-3">
-                    <svg class="lnr text-primary services-icon">
-                        <use xlink:href="#lnr-paperclip"></use>
-                    </svg>
-                    <h6>Forte presença Online</h6>
-                    <p class="text-muted"> nossa atuação online é intensa e muito eficaz nas redes sociais, blog e site da imobiliária.</p>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-3">
-                    <svg class="lnr text-primary services-icon">
-                        <use xlink:href="#lnr-screen"></use>
-                    </svg>
-                    <h6>Tecnologia que faz toda a diferença</h6>
-                    <p class="text-muted">Contamos, ainda, com diversos parceiros que provém tecnologia de ponta para garantir uma experiência de consumo incrível para você.</p>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-3">
-                    <svg class="lnr text-primary services-icon">
-                        <use xlink:href="#lnr-inbox"></use>
-                    </svg>
-                    <h6>Respeito pelo seu patrimônio</h6>
-                    <p class="text-muted">A gente sabe que fechar negócios imobiliários é um passo muito importante para todos. Ao confiar em nossa assessoria você contará com uma completa estrutura jurídica e comercial para te dar todo suporte necessário.</p>
-                </div>
+                <section class="main">
+                    <div class="container mt-4">
+                        <h1 class="text-center mb-4 p-4 text-secondary">Qualidades</h1>
+                        <div class="row">
+                            <div class="card-columns">
+                                <div class="card shadow border-0">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Os melhores imóveis novos ou usados</h5>
+                                        <p class="card-text">Temos uma preciosa carteira de imóveis usados, compondo um amplo e qualificado portfólio de imóveis na planta ou prontos.</p>
+                                    </div>
+                                </div>
+                                <div class="card shadow border-0">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Assessoria completa durante toda a jornada de Compra ou Venda</h5>
+                                        <p class="card-text">Assessoramos nossos clientes em toda a jornada de compra ou venda imobiliária, desde a busca pelo melhor negócio, passando pela aprovação de crédito (caso necessário) e culminando na assistência jurídica e legal.</p>
+                                    </div>
+                                </div>
+                                <div class="card shadow border-0">
+                                    <h5 class="card-title">Avalie e anuncie seu imóvel de graça</h5>
+                                    <p class="card-text">Preparada para realizar uma ágil e justa avaliação, divulgar de maneira eficaz, negociar e acompanhar todo o processo de escritura e registro junto aos cartórios.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
+        <section class="main">
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="card-columns">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Forte presença Online</h5>
+                                <p class="card-text">nossa atuação online é intensa e muito eficaz nas redes sociais, blog e site da imobiliária.</p>
+                            </div>
+                        </div>
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Tecnologia que faz toda a diferença</h5>
+                                <p class="card-text">Contamos, ainda, com diversos parceiros que provém tecnologia de ponta para garantir uma experiência de consumo incrível para você.</p>
+                            </div>
+                        </div>
+                        <div class="card shadow border-0">
+                            <h5 class="card-title">Respeito pelo seu patrimônio</h5>
+                            <p class="card-text">A gente sabe que fechar negócios imobiliários é um passo muito importante para todos. Ao confiar em nossa assessoria você contará com uma completa estrutura jurídica e comercial para te dar todo suporte necessário.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
     <section class="main">
         <div class="container mt-4">
             <h1 class="text-center mb-4 p-4 text-secondary">Avaliações</h1>
             <div class="row">
-
                 <div class="card-columns">
                     <div class="card shadow border-0">
-                        <img class="card-img-top" src="https://lh3.googleusercontent.com/a-/ALV-UjUyMzMxhDAO0oXmZqD7ySIAz4abmhDK2sIa49xKMRURKoE=w60-h60-p-rp-mo-ba4-br100" alt="Card image cap">
+                        <img class="card-img-top" src="https://img.freepik.com/fotos-gratis/mulher-jovem-feliz-recebe-telefonema-falando-no-celular-e-sorrindo-surpreso-de-pe-sobre-fundo-branco_176420-47225.jpg?w=740&t=st=1700784961~exp=1700785561~hmac=42062acf84fe723d848fc6353b18acb3f4be6a449f59057214cadb0ad88b4acd" alt="Card image cap" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Elaine Ribeiro dos Santos Mascarenhas</h5>
                             <p class="card-text">Amei!! Ela é prestativa, disponibiliza tempo para o atendimento, esclarecimentos e atenção. Não mediu esforços para trazer o que eu pedi e  precisava.  Profissional que faz a diferença!! Super índico..</p>
                             <p class="card-text"><small class="text-muted">https://maps.app.goo.gl/mVYBtkutgsfEMMnt9</small></p>
                         </div>
                     </div>
-
                     <div class="card shadow border-0">
-                        <img class="card-img-top" src="https://lh3.googleusercontent.com/a-/ALV-UjV7bLGGePcqzzJi4Dw1mgZbHuu0AGQudn-HOGsYj569wyY=w60-h60-p-rp-mo-br100" alt="Card image cap">
+                        <img class="card-img-top" src="https://img.freepik.com/fotos-gratis/conte-como-feito-assegurada-mulher-afro-americana-confiante-em-tiara-de-sueter-show-ok-ok-sem-preocupacoes-gesto-sorrindo-autoconfiante-plano-vai-bem-satisfeito-com-bons-resultados-torcendo-fundo-amarelo_1258-81922.jpg?w=740&t=st=1700785042~exp=1700785642~hmac=0a858a9ebcf09f4f506ba5a7fe35061de9074a8d5dccc7a1c0944d66bb123a88" alt="Card image cap" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Carmen Ayres</h5>
                             <p class="card-text">Sempre fui super bem tratada, muito educada e gentil. Comprometida em me auxiliar em tudo que precisei. Excelente profissional.  Dou nota dez!</p>
@@ -140,7 +100,7 @@
                         </div>
                     </div>
                     <div class="card shadow border-0">
-                        <img class="card-img-top" src="https://lh3.googleusercontent.com/a-/ALV-UjX1lw0vT-7uD2TCZ3wkqC2HqPbr96JWzMG8xquivUJt7ZyZ=w60-h60-p-rp-mo-br100">
+                        <img class="card-img-top" src="https://img.freepik.com/fotos-gratis/homem-loiro-expressao-feliz_1194-2864.jpg?w=740&t=st=1700785075~exp=1700785675~hmac=95fabbd42ef577acac5a9375ad22a6ea2c9fbf9fdfac897c044f6282fd946443">
                         <div class="card-body">
                             <h5 class="card-title">Israel S. C.</h5>
                             <p class="card-text">Profissional de excelência! Toda o suporte necessário para a compra de um imóvel!</p>
@@ -151,8 +111,6 @@
             </div>
         </div>
     </section>
-
-
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -177,12 +135,10 @@
                             <i class="fa fa-arrow-circle-right"></i>
                         </span>
                     </span>
-                </a></div>
+                </a>
+            </div>
         </div>
-
     </div>
-
-
 </body>
 </html>
 

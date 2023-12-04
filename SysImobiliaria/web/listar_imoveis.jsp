@@ -29,7 +29,7 @@
                 <tr>
 
                     <td>TIPO</td>
-                    <td>PREÇOM2</td>
+                    <td>PREÇO METRO QUADRADO</td>
                     <td>LOCALIZAÇÃO</td>
                     <td>ÁREA ÚTIL</td>
                     <td>ÁREA TOTAL</td>

@@ -23,13 +23,14 @@
             <br>
             <table>
                 <tr>
-                
+
                     <td>NOME</td>
                     <td>EMAIL</td>
                     <td>CPF</td>
                     <td>TELEFONE</td>
+                    <td>STATUS</td>
                     <td>ALTERAR</td>
-                  
+
                 </tr>
                 <%                                    try {
                         CompradorDAO cDB = new CompradorDAO();
@@ -37,21 +38,27 @@
                         cDB.conectar();
                         lista = cDB.listar();
                         for (Comprador c : lista) {
+                            if (c.isStatus()) {
                 %>
                 <tr>
-                   
+
                     <td><%=c.getNome()%></td>
                     <td><%=c.getEmail()%></td>
                     <td><%=c.getCpf()%></td>
                     <td><%=c.getTelefone()%></td>
+                    <% if (c.isStatus()) { %>
+                    <td>ATIVO</td>  
+                    <%  } else {%>
+                    <td>INATIVO</td>   
+                    <%}%>
 
 
 
                     <td ><a href="form_alterar_comprador.jsp?idComprador=<%=c.getIdComprador()%>"><img src="imagens/alterar.png" border="0"></a></td>
-                    
+
 
                 </tr>
-                <%
+                <%}
                         }
                         cDB.desconectar();
                     } catch (Exception erro) {
